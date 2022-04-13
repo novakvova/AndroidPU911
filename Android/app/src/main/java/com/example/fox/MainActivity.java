@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.example.fox.account.LoginActivity;
 import com.example.fox.account.RegisterActivity;
 import com.example.fox.constants.Urls;
 import com.example.fox.network.ImageRequester;
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.m_register:
                 intent = new Intent(this, RegisterActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.m_login:
+                intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 return true;
             default:
