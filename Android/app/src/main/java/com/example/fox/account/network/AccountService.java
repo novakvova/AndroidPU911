@@ -1,6 +1,7 @@
 package com.example.fox.account.network;
 
 import com.example.fox.constants.Urls;
+import com.example.fox.interceptors.JWTInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +18,7 @@ public class AccountService {
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
+                .addInterceptor(new JWTInterceptor())
                 .build();
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
