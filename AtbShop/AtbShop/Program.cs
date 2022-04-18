@@ -94,6 +94,9 @@ builder.Services.AddSwaggerGen(c =>
     c.IncludeXmlComments(fileDoc);
 });
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
