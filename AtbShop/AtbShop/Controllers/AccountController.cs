@@ -60,6 +60,12 @@ namespace AtbShop.Controllers
             return Ok(list);
         }
 
+        /// <summary>
+        /// Авторизація на сайті
+        /// </summary>
+        /// <param name="model">Логін та пароль користувача</param>
+        /// <returns>Повертає токен авторихації</returns>
+
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)

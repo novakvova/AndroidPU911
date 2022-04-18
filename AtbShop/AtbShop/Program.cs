@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -68,9 +69,10 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Program>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "AtbShop", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = assemblyName, Version = "v1" });
     c.AddSecurityDefinition("Bearer",
         new OpenApiSecurityScheme
         {
@@ -88,6 +90,8 @@ builder.Services.AddSwaggerGen(c =>
                         },new List<string>()
                     }
                 });
+    var fileDoc = Path.Combine(System.AppContext.BaseDirectory, $"{assemblyName}.xml");
+    c.IncludeXmlComments(fileDoc);
 });
 
 var app = builder.Build();
@@ -114,5 +118,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.SeedData();
 
 app.Run();
