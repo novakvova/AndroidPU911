@@ -50,10 +50,11 @@ namespace AtbShop.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         [Route("users")]
         public async Task<IActionResult> Users()
         {
+            throw new AppException("Email or password is incorrect");
             Thread.Sleep(1000);
             var list = _context.Users.Select(x => _mapper.Map<UserItemViewModel>(x)).ToList();
 

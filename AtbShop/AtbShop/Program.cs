@@ -1,6 +1,8 @@
 using AtbShop.Data;
 using AtbShop.Data.Entities.Identity;
+using AtbShop.Helpers;
 using AtbShop.Mapper;
+using AtbShop.Middleware;
 using AtbShop.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -99,10 +101,13 @@ builder.Logging.AddConsole();
 
 var app = builder.Build();
 
+// global error handler
+app.UseMiddleware<ErrorHandlerMiddleware>();
+
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
+app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AtbShop v1"));
 //}
 
@@ -121,6 +126,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseLoggerFile();
 
 app.SeedData();
 
