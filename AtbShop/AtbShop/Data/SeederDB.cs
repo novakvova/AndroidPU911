@@ -1,6 +1,7 @@
 ﻿using AtbShop.Constants;
 using AtbShop.Data.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace AtbShop.Data
 {
@@ -14,6 +15,10 @@ namespace AtbShop.Data
                 var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
                 try
                 {
+                    logger.LogInformation("Migrate DB Databases");
+                    var context = scope.ServiceProvider.GetRequiredService<AppEFContext>();
+                    context.Database.Migrate();
+
                     logger.LogInformation("Seeding Web Databases");
                     InitRolesAndUsers(scope);
 

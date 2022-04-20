@@ -34,7 +34,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 
 // Add services to the container.
 
-builder.Services.AddAutoMapper(typeof(AppMapProfile));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Add services to the container.
 
