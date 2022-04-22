@@ -61,6 +61,20 @@ namespace AtbShop.Controllers
             return Ok(list);
         }
 
+        [HttpGet]
+        //[Authorize]
+        [Route("getuser/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            //throw new AppException("Email or password is incorrect");
+            Thread.Sleep(1000);
+            var user = _context.Users
+                .FirstOrDefault(x=>x.Id==id);
+            if(user==null)
+                return NotFound();
+            return Ok(_mapper.Map<UserItemViewModel>(user));
+        }
+
         /// <summary>
         /// Авторизація на сайті
         /// </summary>

@@ -18,9 +18,15 @@ import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UserCardViewHolder> {
     private List<UserDTO> users;
+    private final OnItemClickListener listener;
+    private final OnItemClickListener editUser;
 
-    public UsersAdapter(List<UserDTO> users) {
+    public UsersAdapter(List<UserDTO> users,
+                        OnItemClickListener listener,
+                        OnItemClickListener editUser) {
         this.users = users;
+        this.listener=listener;
+        this.editUser=editUser;
     }
 
     @NonNull
@@ -43,6 +49,20 @@ public class UsersAdapter extends RecyclerView.Adapter<UserCardViewHolder> {
                     .load(url)
                     .apply(new RequestOptions().override(600, 300))
                     .into(holder.userimg);
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(user);
+                }
+            });
+
+            holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    editUser.onItemClick(user);
+                }
+            });
         }
     }
 
