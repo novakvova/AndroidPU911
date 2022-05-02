@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AtbShop</name>
+    </assembly>
+    <members>
+        <member name="M:AtbShop.Controllers.AccountController.Login(AtbShop.Models.LoginViewModel)">
+            <summary>
+            Авторизація на сайті
+            </summary>
+            <param name="model">Логін та пароль користувача</param>
+            <returns>Повертає токен авторихації</returns>
+        </member>
+        <member name="P:AtbShop.Models.LoginViewModel.Email">
+            <summary>
+            Емейл користувача
+            </summary>
+            <example>admin@gmail.com</example>
+        </member>
+        <member name="P:AtbShop.Models.LoginViewModel.Password">
+            <summary>
+            Пароль користувача
+            </summary>
+            <example>12345</example>
+        </member>
+    </members>
+</doc>

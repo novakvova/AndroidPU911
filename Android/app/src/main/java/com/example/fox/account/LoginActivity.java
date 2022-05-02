@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fox.BaseActivity;
 import com.example.fox.MainActivity;
 import com.example.fox.R;
 import com.example.fox.account.dto.AccountResponseDTO;
@@ -32,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private TextView tvInfo;
     private TextInputLayout textFieldEmail;
     private TextInputEditText txtEmail;
@@ -77,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                             //tvInfo.setText("response is good");
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             try {
                                 showErrorsServer(response.errorBody().string());

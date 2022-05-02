@@ -27,7 +27,7 @@ import com.example.fox.network.ImageRequester;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ImageRequester imageRequester;
     private NetworkImageView myImage;
@@ -49,35 +49,6 @@ public class MainActivity extends AppCompatActivity {
         String urlImg = Urls.BASE+"/images/1.jpg";
         imageRequester.setImageFromUrl(myImage, urlImg);
         IVPreviewImage = findViewById(R.id.IVPreviewImage);
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.m_register:
-                intent = new Intent(this, RegisterActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.m_login:
-                intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.m_users:
-                intent = new Intent(this, UsersActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
 
     }
 

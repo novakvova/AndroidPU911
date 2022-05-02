@@ -15,7 +15,7 @@
         /// <summary>
         /// Емейл користувача
         /// </summary>
-        /// <example>gg@gg.gg</example>
+        /// <example>admin@gmail.com</example>
         public string Email { get; set; }
         /// <summary>
         /// Пароль користувача

@@ -37,6 +37,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEmail"
+                android:text="admin@gmail.com"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -56,6 +57,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtPassword"
+                android:text="12345"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

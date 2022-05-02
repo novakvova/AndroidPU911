@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.fox.BaseActivity;
 import com.example.fox.R;
 
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

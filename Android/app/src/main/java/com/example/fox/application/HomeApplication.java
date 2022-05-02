@@ -70,4 +70,11 @@ public class HomeApplication extends Application
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean isAuth() {
+        if(getToken().equals(""))
+            return false;
+        return true;
+    }
 }

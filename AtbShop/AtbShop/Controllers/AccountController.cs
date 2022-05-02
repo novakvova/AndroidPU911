@@ -50,7 +50,7 @@ namespace AtbShop.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         [Route("users")]
         public async Task<IActionResult> Users()
         {
