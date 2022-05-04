@@ -52,4 +52,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
 
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    // https://mvnrepository.com/artifact/com.oginotihiro/cropview
+    implementation 'com.oginotihiro:cropview:1.0.0'
+
 }

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fox.BaseActivity;
+import com.example.fox.ChangeImageActivity;
 import com.example.fox.MainActivity;
 import com.example.fox.R;
 import com.example.fox.account.dto.AccountResponseDTO;
@@ -43,6 +44,7 @@ public class RegisterActivity extends BaseActivity {
     // constant to compare
     // the activity result code
     int SELECT_PICTURE = 200;
+    int SELECT_CROPPER = 300;
     String sImage="";
 
     @Override
@@ -61,15 +63,19 @@ public class RegisterActivity extends BaseActivity {
     }
 
     public void handleSelectImageClick(View view) {
-        // create an instance of the
-        // intent of the type image
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-
-        // pass the constant to compare it
-        // with the returned requestCode
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+        Intent intent = new Intent(this, ChangeImageActivity.class);
+        startActivityForResult(intent, SELECT_CROPPER);
+//        startActivity(intent);
+        int a = 12;
+//        // create an instance of the
+//        // intent of the type image
+//        Intent i = new Intent();
+//        i.setType("image/*");
+//        i.setAction(Intent.ACTION_GET_CONTENT);
+//
+//        // pass the constant to compare it
+//        // with the returned requestCode
+//        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
     }
 
     // this function is triggered when user
@@ -77,6 +83,13 @@ public class RegisterActivity extends BaseActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        if(resultCode == SELECT_CROPPER)
+        {
+            String base64 = data.getStringExtra("base64");
+
+            int a = 12;
+            a=16;
+        }
         if (resultCode == RESULT_OK) {
 
             // compare the resultCode with the
@@ -103,6 +116,13 @@ public class RegisterActivity extends BaseActivity {
             }
         }
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (data == null) {return;}
+////        String name = data.getStringExtra("name");
+////        tvName.setText("Your name is " + name);
+//    }
 
     public void handleClick(View view) {
         RegisterDTO registerDTO = new RegisterDTO();

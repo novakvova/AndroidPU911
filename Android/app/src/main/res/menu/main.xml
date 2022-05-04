@@ -6,6 +6,10 @@
         android:id="@+id/m_home"
         android:title="Додому"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/m_crop"
+        android:title="Обрізка фото"
+        app:showAsAction="never" />
     <group
         android:id="@+id/group_anonimus"
         android:visible="true">

@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/drawable-anydpi/ic_baseline_add_a_photo_24.xml" value="0.19947916666666668" />
+        <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/drawable-anydpi/ic_baseline_rotate_left_44.xml" value="0.19947916666666668" />
+        <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/drawable-anydpi/ic_baseline_rotate_right_44.xml" value="0.19947916666666668" />
+        <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/layout/activity_change_image.xml" value="0.18333333333333332" />
         <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Study/2022/13.Android - PU911/App/Android/app/src/main/res/layout/activity_register.xml" value="0.264" />
